@@ -113,13 +113,56 @@ const Home = () => {
           text-transform: uppercase;
           margin-top: 2px;
         }
+
+        /* ── Responsive: Tablet (max 1024px) ── */
+        @media (max-width: 1024px) {
+          .home-wrapper { padding: 16px 24px 48px !important; }
+          .main-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .bottom-grid { grid-template-columns: 1fr !important; }
+          .profile-card { min-height: auto !important; }
+        }
+
+        /* ── Responsive: Mobile (max 600px) ── */
+        @media (max-width: 600px) {
+          .home-wrapper { padding: 12px 14px 40px !important; }
+          .main-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+          .bottom-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+          /* Profile card: stack image on top */
+          .profile-card { flex-direction: column !important; align-items: flex-start !important; padding: 20px !important; min-height: auto !important; }
+          .profile-img { width: 80px !important; height: 100px !important; }
+          .profile-name { font-size: 28px !important; letter-spacing: -1px !important; }
+          .profile-arrow { bottom: 14px !important; right: 14px !important; }
+
+          /* Credentials card */
+          .credentials-card { min-height: 160px !important; }
+          .credentials-svg-wrap { transform: scale(0.7) !important; }
+
+          /* Projects card */
+          .projects-card { min-height: 160px !important; }
+          .projects-inner-wrap { transform: scale(0.65) !important; }
+
+          /* GFonts, Services, Profiles */
+          .gfonts-card, .services-card, .profiles-card { min-height: 170px !important; }
+
+          /* Stats */
+          .stats-inner { flex-direction: column !important; gap: 18px !important; align-items: center !important; }
+          .stats-divider { width: 80px !important; height: 1px !important; }
+          .stat-num { font-size: 32px !important; }
+
+          /* Let's work together */
+          .work-heading { font-size: 36px !important; letter-spacing: -1.5px !important; }
+
+          /* Marquee pill */
+          .marquee-pill { padding: 9px 16px !important; border-radius: 999px !important; }
+        }
       `}</style>
 
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "22px 48px 56px" }}>
+      <div className="home-wrapper" style={{ maxWidth: 1240, margin: "0 auto", padding: "22px 48px 56px" }}>
 
-        {/* ── Top Row: Marquee now spans full width ── */}
+        {/* ── Marquee ── */}
         <div style={{ marginBottom: 12 }}>
-          <div style={{
+          <div className="marquee-pill" style={{
             background: "#111",
             borderRadius: 999,
             padding: "11px 28px",
@@ -139,30 +182,31 @@ const Home = () => {
         </div>
 
         {/* ── Main 3-col Grid ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+        <div className="main-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
 
           {/* 1 — Profile Card */}
-          <div className="card" style={{ padding: "22px 22px 20px", display: "flex", alignItems: "center", gap: 18, position: "relative", minHeight: 210 }}>
+          <div className="card profile-card" style={{ padding: "22px 22px 20px", display: "flex", alignItems: "center", gap: 18, position: "relative", minHeight: 210 }}>
             <img
+              className="profile-img"
               src="https://i.ibb.co.com/wZNPNjNw/97126606.jpg"
               style={{ width: 115, height: 148, borderRadius: 16, objectFit: "cover", objectPosition: "top", flexShrink: 0 }}
-              alt="David Henderson"
+              alt="Md Ebtesham Azam"
             />
             <div style={{ flex: 1 }}>
               <Tag>A WEB DESIGNER</Tag>
-              <h1 style={{ fontSize: 32, fontWeight: 900, lineHeight: 1.03, letterSpacing: "-1.8px", marginTop: 6 }}>
-                David<br />Henderson.
+              <h1 className="profile-name" style={{ fontSize: 32, fontWeight: 900, lineHeight: 1.03, letterSpacing: "-1.8px", marginTop: 6 }}>
+                Md Ebtesham<br />Azam.
               </h1>
               <p style={{ color: "#555", fontSize: 11.5, marginTop: 10, lineHeight: 1.65 }}>
                 I am a Web Designer based<br />in san francisco.
               </p>
             </div>
-            <div style={{ position: "absolute", bottom: 18, right: 18 }}><ArrowBtn /></div>
+            <div className="profile-arrow" style={{ position: "absolute", bottom: 18, right: 18 }}><ArrowBtn /></div>
           </div>
 
-          {/* 2 — Credentials - ছোট করা হয়েছে */}
-          <div className="card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180 }}>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.85)" }}>
+          {/* 2 — Credentials */}
+          <div className="card credentials-card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180 }}>
+            <div className="credentials-svg-wrap" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.85)" }}>
               <svg width="160" height="90" viewBox="0 0 160 90" fill="none">
                 <path d="M10 62 Q22 22 38 40 Q50 55 62 26 Q72 10 84 42 Q93 63 106 34 Q116 14 126 42 Q134 56 148 38"
                   stroke="#484848" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
@@ -180,9 +224,9 @@ const Home = () => {
             </div>
           </div>
 
-          {/* 3 — Projects - ছোট করা হয়েছে */}
-          <div className="card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180, overflow: "hidden" }}>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.8)" }}>
+          {/* 3 — Projects */}
+          <div className="card projects-card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180, overflow: "hidden" }}>
+            <div className="projects-inner-wrap" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.8)" }}>
               <div style={{ background: "#1c1c1c", borderRadius: 12, padding: "12px 14px", width: "100%", maxWidth: 200, border: "1px solid #242424" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 10 }}>
                   <div style={{ display: "flex", gap: 4 }}>
@@ -200,14 +244,9 @@ const Home = () => {
                   <div style={{ padding: 10 }}>
                     <div style={{
                       background: "linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%)",
-                      borderRadius: 6,
-                      height: 68,
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 4,
-                      border: "1px solid #2e2e2e"
+                      borderRadius: 6, height: 68,
+                      display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                      gap: 4, border: "1px solid #2e2e2e"
                     }}>
                       <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#333", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
                         <div style={{ width: 16, height: 16, borderRadius: "50%", background: "#3a3a3a" }} />
@@ -234,7 +273,7 @@ const Home = () => {
           </div>
 
           {/* 4 — GFonts */}
-          <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
+          <div className="card gfonts-card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
             <div style={{ flex: 1, display: "flex", alignItems: "flex-start", paddingTop: 8 }}>
               <div style={{ position: "relative", width: 88, height: 82 }}>
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#E53935", position: "absolute", top: 0, left: 0 }} />
@@ -253,7 +292,7 @@ const Home = () => {
           </div>
 
           {/* 5 — Services Offering */}
-          <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
+          <div className="card services-card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <div className="svc-icon"><CameraIcon /></div>
               <div className="svc-icon"><PenToolIcon /></div>
@@ -270,7 +309,7 @@ const Home = () => {
           </div>
 
           {/* 6 — Profiles */}
-          <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
+          <div className="card profiles-card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
             <div style={{ display: "flex", gap: 12 }}>
               <div className="social-btn"><DribbbleIcon /></div>
               <div className="social-btn"><TwitterIcon /></div>
@@ -287,23 +326,23 @@ const Home = () => {
         </div>
 
         {/* ── Bottom Row ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
+        <div className="bottom-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
 
           {/* Stats Card */}
           <div className="card" style={{ padding: "28px 36px" }}>
-            <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
+            <div className="stats-inner" style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">07</div>
                 <div className="stat-lbl">YEARS</div>
                 <div className="stat-lbl" style={{ color: "#666" }}>EXPERIENCE</div>
               </div>
-              <div style={{ width: 1, height: 48, background: "#242424" }} />
+              <div className="stats-divider" style={{ width: 1, height: 48, background: "#242424" }} />
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">+125</div>
                 <div className="stat-lbl">CLIENTS</div>
                 <div className="stat-lbl" style={{ color: "#666" }}>WORLDWIDE</div>
               </div>
-              <div style={{ width: 1, height: 48, background: "#242424" }} />
+              <div className="stats-divider" style={{ width: 1, height: 48, background: "#242424" }} />
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">+210</div>
                 <div className="stat-lbl">TOTAL</div>
@@ -330,7 +369,7 @@ const Home = () => {
             </div>
 
             <div style={{ marginTop: 8 }}>
-              <h2 style={{
+              <h2 className="work-heading" style={{
                 fontSize: 44,
                 fontWeight: 800,
                 lineHeight: 1.05,
