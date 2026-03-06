@@ -114,7 +114,6 @@ const Home = () => {
           margin-top: 2px;
         }
 
-        /* ── Responsive: Tablet (max 1024px) ── */
         @media (max-width: 1024px) {
           .home-wrapper { padding: 16px 24px 48px !important; }
           .main-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -122,45 +121,30 @@ const Home = () => {
           .profile-card { min-height: auto !important; }
         }
 
-        /* ── Responsive: Mobile (max 600px) ── */
         @media (max-width: 600px) {
           .home-wrapper { padding: 12px 14px 40px !important; }
           .main-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
           .bottom-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-
-          /* Profile card: stack image on top */
           .profile-card { flex-direction: column !important; align-items: flex-start !important; padding: 20px !important; min-height: auto !important; }
           .profile-img { width: 80px !important; height: 100px !important; }
           .profile-name { font-size: 28px !important; letter-spacing: -1px !important; }
           .profile-arrow { bottom: 14px !important; right: 14px !important; }
-
-          /* Credentials card */
           .credentials-card { min-height: 160px !important; }
           .credentials-svg-wrap { transform: scale(0.7) !important; }
-
-          /* Projects card */
           .projects-card { min-height: 160px !important; }
           .projects-inner-wrap { transform: scale(0.65) !important; }
-
-          /* GFonts, Services, Profiles */
           .gfonts-card, .services-card, .profiles-card { min-height: 170px !important; }
-
-          /* Stats */
           .stats-inner { flex-direction: column !important; gap: 18px !important; align-items: center !important; }
           .stats-divider { width: 80px !important; height: 1px !important; }
           .stat-num { font-size: 32px !important; }
-
-          /* Let's work together */
           .work-heading { font-size: 36px !important; letter-spacing: -1.5px !important; }
-
-          /* Marquee pill */
           .marquee-pill { padding: 9px 16px !important; border-radius: 999px !important; }
         }
       `}</style>
 
       <div className="home-wrapper" style={{ maxWidth: 1240, margin: "0 auto", padding: "22px 48px 56px" }}>
 
-        {/* ── Marquee ── */}
+        {/* Marquee */}
         <div style={{ marginBottom: 12 }}>
           <div className="marquee-pill" style={{
             background: "#111",
@@ -181,7 +165,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ── Main 3-col Grid ── */}
+        {/* Main 3-col Grid */}
         <div className="main-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
 
           {/* 1 — Profile Card */}
@@ -198,7 +182,7 @@ const Home = () => {
                 Md Ebtesham<br />Azam.
               </h1>
               <p style={{ color: "#555", fontSize: 11.5, marginTop: 10, lineHeight: 1.65 }}>
-                I am a Web Designer based<br />in san francisco.
+                I am a Web Designer based<br />in chattogram,Bangladesh.
               </p>
             </div>
             <div className="profile-arrow" style={{ position: "absolute", bottom: 18, right: 18 }}><ArrowBtn /></div>
@@ -325,7 +309,7 @@ const Home = () => {
 
         </div>
 
-        {/* ── Bottom Row ── */}
+        {/* Bottom Row */}
         <div className="bottom-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 12 }}>
 
           {/* Stats Card */}
