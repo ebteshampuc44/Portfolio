@@ -117,9 +117,8 @@ const Home = () => {
 
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "22px 48px 56px" }}>
 
-        {/* ── Top Row: empty left + Marquee right ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 12, marginBottom: 12 }}>
-          <div />
+        {/* ── Top Row: Marquee now spans full width ── */}
+        <div style={{ marginBottom: 12 }}>
           <div style={{
             background: "#111",
             borderRadius: 999,
@@ -161,11 +160,10 @@ const Home = () => {
             <div style={{ position: "absolute", bottom: 18, right: 18 }}><ArrowBtn /></div>
           </div>
 
-          {/* 2 — Credentials */}
-          <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {/* 2 — Credentials - ছোট করা হয়েছে */}
+          <div className="card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180 }}>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.85)" }}>
               <svg width="160" height="90" viewBox="0 0 160 90" fill="none">
-                {/* Signature-like strokes */}
                 <path d="M10 62 Q22 22 38 40 Q50 55 62 26 Q72 10 84 42 Q93 63 106 34 Q116 14 126 42 Q134 56 148 38"
                   stroke="#484848" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M8 75 Q40 68 72 74 Q104 80 148 70"
@@ -176,34 +174,29 @@ const Home = () => {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
               <div>
                 <Tag>MORE ABOUT ME</Tag>
-                <h3 style={{ fontSize: 23, fontWeight: 700, letterSpacing: "-0.5px" }}>Credentials</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: "-0.5px" }}>Credentials</h3>
               </div>
               <ArrowBtn />
             </div>
           </div>
 
-          {/* 3 — Projects */}
-          <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210, overflow: "hidden" }}>
-            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {/* Mockup browser window */}
+          {/* 3 — Projects - ছোট করা হয়েছে */}
+          <div className="card" style={{ padding: "20px 22px 18px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 180, overflow: "hidden" }}>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(0.8)" }}>
               <div style={{ background: "#1c1c1c", borderRadius: 12, padding: "12px 14px", width: "100%", maxWidth: 200, border: "1px solid #242424" }}>
-                {/* Browser top bar */}
                 <div style={{ display: "flex", alignItems: "center", gap: 5, marginBottom: 10 }}>
                   <div style={{ display: "flex", gap: 4 }}>
                     {[0,1,2].map(i => <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: "#2a2a2a" }} />)}
                   </div>
                   <div style={{ flex: 1, background: "#222", borderRadius: 4, height: 8 }} />
                 </div>
-                {/* Content area */}
                 <div style={{ background: "#222", borderRadius: 8, overflow: "hidden" }}>
-                  {/* Header */}
                   <div style={{ background: "#262626", padding: "8px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <span style={{ color: "#555", fontSize: 8, letterSpacing: "0.12em" }}>MY WORKS</span>
                     <div style={{ display: "flex", gap: 4 }}>
                       {[0,1,2].map(i => <div key={i} style={{ width: 14, height: 4, borderRadius: 2, background: "#2e2e2e" }} />)}
                     </div>
                   </div>
-                  {/* Main image area */}
                   <div style={{ padding: 10 }}>
                     <div style={{
                       background: "linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%)",
@@ -216,7 +209,6 @@ const Home = () => {
                       gap: 4,
                       border: "1px solid #2e2e2e"
                     }}>
-                      {/* Small course cover design */}
                       <div style={{ width: 28, height: 28, borderRadius: "50%", background: "#333", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
                         <div style={{ width: 16, height: 16, borderRadius: "50%", background: "#3a3a3a" }} />
                       </div>
@@ -235,7 +227,7 @@ const Home = () => {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
               <div>
                 <Tag>SHOWCASE</Tag>
-                <h3 style={{ fontSize: 23, fontWeight: 700, letterSpacing: "-0.5px" }}>Projects</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: "-0.5px" }}>Projects</h3>
               </div>
               <ArrowBtn />
             </div>
@@ -244,15 +236,10 @@ const Home = () => {
           {/* 4 — GFonts */}
           <div className="card" style={{ padding: "26px 26px 22px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 210 }}>
             <div style={{ flex: 1, display: "flex", alignItems: "flex-start", paddingTop: 8 }}>
-              {/* Google Fonts-like logo */}
               <div style={{ position: "relative", width: 88, height: 82 }}>
-                {/* Red circle top-left */}
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#E53935", position: "absolute", top: 0, left: 0 }} />
-                {/* Yellow square overlapping */}
                 <div style={{ width: 32, height: 32, background: "#FDD835", position: "absolute", top: 12, left: 14, borderRadius: 6, zIndex: 1 }} />
-                {/* Blue rectangle bottom-right */}
                 <div style={{ width: 40, height: 56, background: "#1E88E5", borderRadius: "10px 10px 0 0", position: "absolute", bottom: 0, right: 0 }} />
-                {/* Red overlap on blue bottom */}
                 <div style={{ width: 40, height: 28, background: "#E53935", position: "absolute", bottom: 0, right: 0, borderRadius: "0 0 10px 10px" }} />
               </div>
             </div>
@@ -305,21 +292,18 @@ const Home = () => {
           {/* Stats Card */}
           <div className="card" style={{ padding: "28px 36px" }}>
             <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
-              {/* Stat 1 */}
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">07</div>
                 <div className="stat-lbl">YEARS</div>
                 <div className="stat-lbl" style={{ color: "#666" }}>EXPERIENCE</div>
               </div>
               <div style={{ width: 1, height: 48, background: "#242424" }} />
-              {/* Stat 2 */}
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">+125</div>
                 <div className="stat-lbl">CLIENTS</div>
                 <div className="stat-lbl" style={{ color: "#666" }}>WORLDWIDE</div>
               </div>
               <div style={{ width: 1, height: 48, background: "#242424" }} />
-              {/* Stat 3 */}
               <div style={{ textAlign: "center" }}>
                 <div className="stat-num">+210</div>
                 <div className="stat-lbl">TOTAL</div>
@@ -338,7 +322,6 @@ const Home = () => {
             overflow: "hidden",
             minHeight: 160
           }}>
-            {/* Decorative 4-point star */}
             <div style={{ position: "absolute", top: 22, left: 34 }}>
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <path d="M14 2 L15.5 12.5 L26 14 L15.5 15.5 L14 26 L12.5 15.5 L2 14 L12.5 12.5 Z"
@@ -346,7 +329,6 @@ const Home = () => {
               </svg>
             </div>
 
-            {/* Text */}
             <div style={{ marginTop: 8 }}>
               <h2 style={{
                 fontSize: 44,
